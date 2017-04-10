@@ -75,8 +75,8 @@ app.get('/humanities', function (req, res) {
     // handle all your errors here
   });
 
-  console.error("HERRRREE");
-  res.json(JSON.parse(fs.readFileSync('content/humanities.json', 'utf-8')));
+  // console.error("HERRRREE");
+  // res.json(JSON.parse(fs.readFileSync('content/humanities.json', 'utf-8')));
 });
 
 app.get('/economics-finance-domain', function (req, res) {
