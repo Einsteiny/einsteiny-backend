@@ -36,6 +36,7 @@ var app = express();
 // Serve static assets from the /public folder
 app.use('/public', express.static(path.join(__dirname, '/public')));
 
+
 // Serve the Parse API on the /parse URL prefix
 var mountPath = process.env.PARSE_MOUNT || '/parse';
 app.use(mountPath, api);
@@ -51,12 +52,15 @@ app.get('/test', function (req, res) {
   res.sendFile(path.join(__dirname, '/public/test.html'));
 });
 
+var artImages = ["art_second_empire.jpg", "art_realism.jpg", "art_impressionism.jpg", "art_post_impressinism.jpg", "art_sculpture.jpg"];
+var eisteinyUrl = "https://einsteiny.herokuapp.com/";
+
 app.get('/humanities', function (req, res) {
   // create request objects
   var requests = [{ url: apiUrl + "second-empire" },
   { url: apiUrl + "realism" },
-  { url: apiUrl + "post-impressionism" },
   { url: apiUrl + "impressionism" },
+  { url: apiUrl + "post-impressionism" },
   { url: apiUrl + "avant-garde-sculpture" },
   { url: apiUrl + "art-1010-ddp" },
   { url: apiUrl + "ceramics-glass" },
@@ -71,6 +75,13 @@ app.get('/humanities', function (req, res) {
       return JSON.parse(body);
     });
   }).then(function (results) {
+    for (let i = 0; i < results.length; i++) {
+      let result = results[i];
+      if (i < artImages.length) {
+        result.photo_url = eisteinyUrl + "public/images/" + artImages[i];
+      }
+
+    }
     let response = JSON.parse(`{ "standalone_title": "Arts", "children": ${JSON.stringify(results)} }`);
     console.log("response = ", response);
     res.json(response);
@@ -162,14 +173,6 @@ app.get('/science', function (req, res) {
     res.json(JSON.parse(fs.readFileSync('content/humanities.json', 'utf-8')));
   });
 });
-
-
-
-
-
-
-
-
 
 
 
