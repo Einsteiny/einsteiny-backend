@@ -66,7 +66,9 @@ app.get('/humanities', function (req, res) {
       return JSON.parse(body);
     });
   }).then(function (results) {
-    res.json(JSON.parse(`{ "standalone_title": "Arts", "children": ${results}}`));
+    let response = JSON.parse(`{ "standalone_title": "Arts", "children": ${results} }`);
+    console.log("response = ", response);
+    res.json(response);
     for (var i = 0; i < results.length; i++) {
       // access the result's body via results[i]
     }
