@@ -6,6 +6,9 @@ var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 var fs = require('fs');
 
+var Promise = require("bluebird");
+var request = require('request-promise');
+
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
 if (!databaseUri) {
@@ -36,39 +39,71 @@ var mountPath = process.env.PARSE_MOUNT || '/parse';
 app.use(mountPath, api);
 
 // Parse Server plays nicely with the rest of your web routes
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.status(200).send('I dream of being a website.  Please star the parse-server repo on GitHub!');
 });
 
 // There will be a test page available on the /test path of your server url
 // Remove this before launching your app
-app.get('/test', function(req, res) {
+app.get('/test', function (req, res) {
   res.sendFile(path.join(__dirname, '/public/test.html'));
 });
 
-app.get('/humanities', function(req, res) {
+app.get('/humanities', function (req, res) {
+  // create request objects
+  let apiUrl = "https://www.khanacademy.org/api/v1/"
+  var requests = [{
+    url: "apiUrl" + "second-empire"
+    
+  }, {
+    url: "apiUrl" + "realism"
+   
+  }];
+
+
+  Promise.map(requests, function (obj) {
+    return request(obj).then(function (body) {
+      return JSON.parse(body);
+    });
+  }).then(function (results) {
+    console.log(results);
+    for (var i = 0; i < results.length; i++) {
+      console.error("results = ", results);
+      // access the result's body via results[i]
+    }
+  }, function (err) {
+    // handle all your errors here
+  });
+
   res.json(JSON.parse(fs.readFileSync('content/humanities.json', 'utf-8')));
 });
 
-app.get('/economics-finance-domain', function(req, res) {
+app.get('/economics-finance-domain', function (req, res) {
   res.json(JSON.parse(fs.readFileSync('content/humanities.json', 'utf-8')));
 });
 
-app.get('/computing', function(req, res) {
+app.get('/computing', function (req, res) {
   res.json(JSON.parse(fs.readFileSync('content/humanities.json', 'utf-8')));
 });
 
-app.get('/science', function(req, res) {
+app.get('/science', function (req, res) {
   res.json(JSON.parse(fs.readFileSync('content/humanities.json', 'utf-8')));
 });
+
+
+
+
+
+
+
 
 
 
 
 var port = process.env.PORT || 1337;
 var httpServer = require('http').createServer(app);
-httpServer.listen(port, function() {
-    console.log('parse-server-example running on port ' + port + '.');
+httpServer.listen(port, function () {
+  console.log('parse-server-example running on port ' + port + '.');
 });
 
 

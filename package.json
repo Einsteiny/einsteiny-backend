@@ -12,6 +12,8 @@
     "express": "~4.11.x",
     "kerberos": "~0.0.x",
     "parse": "~1.8.0",
+    "bluebird":"3.5.0",
+    "request-promise":"4.2.0",
     "parse-server": "*"
   },
   "scripts": {
