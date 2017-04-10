@@ -54,10 +54,10 @@ app.get('/humanities', function (req, res) {
   let apiUrl = "https://www.khanacademy.org/api/v1/topic/"
   var requests = [{
     url: "apiUrl" + "second-empire"
-    
+
   }, {
     url: "apiUrl" + "realism"
-   
+
   }];
 
 
@@ -72,9 +72,11 @@ app.get('/humanities', function (req, res) {
       // access the result's body via results[i]
     }
   }, function (err) {
+    console.log(err);
     // handle all your errors here
   });
 
+  console.error("HERRRREE");
   res.json(JSON.parse(fs.readFileSync('content/humanities.json', 'utf-8')));
 });
 
