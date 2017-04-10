@@ -50,6 +50,21 @@ app.get('/humanities', function(req, res) {
   res.json(JSON.parse(fs.readFileSync('content/humanities.json', 'utf-8')));
 });
 
+app.get('/economics-finance-domain', function(req, res) {
+  res.json(JSON.parse(fs.readFileSync('content/humanities.json', 'utf-8')));
+});
+
+app.get('/computing', function(req, res) {
+  res.json(JSON.parse(fs.readFileSync('content/humanities.json', 'utf-8')));
+});
+
+app.get('/science', function(req, res) {
+  res.json(JSON.parse(fs.readFileSync('content/humanities.json', 'utf-8')));
+});
+
+
+
+
 var port = process.env.PORT || 1337;
 var httpServer = require('http').createServer(app);
 httpServer.listen(port, function() {
