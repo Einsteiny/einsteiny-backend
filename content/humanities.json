@@ -1,0 +1,93 @@
+[
+    {
+        "from": "https://www.khanacademy.org/api/v1/topic/impressionism",
+        "ka_url": "https://www.khanacademy.org/humanities/becoming-modern/avant-garde-france/impressionism",
+        "node_slug": "impressionism",
+        "child_data": [
+            {
+                "kind": "Article",
+                "id": "xacd1a31d"
+            },
+            {
+                "kind": "Article",
+                "id": "x532f79fd"
+            },
+            {
+                "kind": "Video",
+                "id": 671385812
+            },
+            {
+                "kind": "Video",
+                "id": 719842167
+            },
+            {
+                "kind": "Video",
+                "id": 671593304
+            },
+            {
+                "kind": "Video",
+                "id": 719474985
+            },
+            {
+                "kind": "Video",
+                "id": 669368685
+            },
+            {
+                "kind": "Video",
+                "id": 816157054
+            },
+            {
+                "kind": "Video",
+                "id": 671738041
+            },
+            {
+                "kind": "Video",
+                "id": 719728953
+            },
+            {
+                "kind": "Article",
+                "id": "xfb844287"
+            },
+            {
+                "kind": "Video",
+                "id": 719786825
+            },
+            {
+                "kind": "Video",
+                "id": 669368686
+            },
+            {
+                "kind": "Video",
+                "id": 719786828
+            },
+            {
+                "kind": "Article",
+                "id": "xf5b3b7e3"
+            },
+            {
+                "kind": "Video",
+                "id": 671718104
+            }
+        ],
+        "children": [
+            {
+                "description": "",
+                "title": "A beginner's guide to Impressionism",
+                "url": "https://www.khanacademy.org/humanities/becoming-modern/avant-garde-france/impressionism/a/a-beginners-guide-to-impressionism"
+            },
+            {
+                "description": "",
+                "title": "How the Impressionists got their name",
+                "url": "https://www.khanacademy.org/humanities/becoming-modern/avant-garde-france/impressionism/a/how-the-impressionists-got-their-name"
+            },
+            {
+                "description": "Edgar Degas, The Bellelli Family, 1858-67, oil on canvas, 78-3/4 x 98-1/2 inches, 200 x 250 cm (Musée d'Orsay, Paris) Speakers: Dr. Beth Harris and Dr. Steven Zucker. Degas was in his mid-twenties when he painted this canvas. It depicts from left to right, the ten-year-old Giovanna, her mother, the artist's paternal aunt Laura, her younger daughter, Giula age 7, and the Baron Gennaro Bellelli. Preperatory sketches for the painting may have been made in Florence where the family was living—the Baron had been exiled from Naples. The picture may have been completed in Paris. ",
+                "kind": "Video",
+            
+                "title": "Degas, The Bellelli Family",
+                "url": "https://www.khanacademy.org/video/degas-the-bellelli-family-1858-67"
+                
+            }
+        ]
+    }
+]
