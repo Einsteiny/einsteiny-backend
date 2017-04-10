@@ -52,13 +52,13 @@ app.get('/test', function (req, res) {
 app.get('/humanities', function (req, res) {
   // create request objects
   let apiUrl = "https://www.khanacademy.org/api/v1/topic/"
-  var requests = [{
-    url: apiUrl + "second-empire"
+  var requests = [{ url: apiUrl + "second-empire" },
+  { url: apiUrl + "realism" },
+  { url: apiUrl + "post-impressionism" },
+  { url: apiUrl + "impressionism" },
+  { url: apiUrl + "avant-garde-sculpture" },
+  ];
 
-  }, {
-    url: apiUrl + "realism"
-
-  }];
 
 
   Promise.map(requests, function (obj) {
@@ -66,19 +66,14 @@ app.get('/humanities', function (req, res) {
       return JSON.parse(body);
     });
   }).then(function (results) {
-    let response = JSON.parse(`{ "standalone_title": "Arts", "children": ${results} }`);
+    let response = JSON.parse(`{ "standalone_title": "Arts", "children": ${JSON.stringify(results)} }`);
     console.log("response = ", response);
     res.json(response);
-    for (var i = 0; i < results.length; i++) {
-      // access the result's body via results[i]
-    }
   }, function (err) {
     console.log(err);
     // handle all your errors here
+    res.json(JSON.parse(fs.readFileSync('content/humanities.json', 'utf-8')));
   });
-
-  // console.error("HERRRREE");
-  // res.json(JSON.parse(fs.readFileSync('content/humanities.json', 'utf-8')));
 });
 
 app.get('/economics-finance-domain', function (req, res) {
