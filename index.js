@@ -51,7 +51,7 @@ app.get('/test', function (req, res) {
 
 app.get('/humanities', function (req, res) {
   // create request objects
-  let apiUrl = "https://www.khanacademy.org/api/v1/"
+  let apiUrl = "https://www.khanacademy.org/api/v1/topic/"
   var requests = [{
     url: "apiUrl" + "second-empire"
     
