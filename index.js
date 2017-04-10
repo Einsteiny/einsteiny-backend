@@ -34,7 +34,9 @@ var api = new ParseServer({
 var app = express();
 
 // Serve static assets from the /public folder
-app.use('/public', express.static(path.join(__dirname, '/public')));
+//  app.use('/public', express.static(path.join(__dirname, '/public')));
+app.use(express.static('public'));
+
 
 
 // Serve the Parse API on the /parse URL prefix
@@ -78,7 +80,7 @@ app.get('/humanities', function (req, res) {
     for (let i = 0; i < results.length; i++) {
       let result = results[i];
       if (i < artImages.length) {
-        result.photo_url = eisteinyUrl + "public/images/" + artImages[i];
+        result.photo_url = eisteinyUrl + "images/" + artImages[i];
       }
 
     }
