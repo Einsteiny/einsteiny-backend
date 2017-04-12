@@ -54,37 +54,48 @@ app.get('/test', function (req, res) {
   res.sendFile(path.join(__dirname, '/public/test.html'));
 });
 
-var artImages = ["art_second_empire.jpg", "art_realism.jpg", "art_impressionism.jpg", "art_post_impressinism.jpg", "art_sculpture.jpg"];
 var eisteinyUrl = "https://einsteiny.herokuapp.com/";
 
 app.get('/humanities', function (req, res) {
   // create request objects
-  var requests = [{ url: apiUrl + "second-empire" },
-  { url: apiUrl + "realism" },
-  { url: apiUrl + "impressionism" },
-  { url: apiUrl + "post-impressionism" },
-  { url: apiUrl + "avant-garde-sculpture" },
-  { url: apiUrl + "art-1010-ddp" },
-  { url: apiUrl + "ceramics-glass" },
-  { url: apiUrl + "sculpture" },
-  { url: apiUrl + "painting-materials-techniques" },
-  { url: apiUrl + "printmaking" },
-  { url: apiUrl + "tools-understanding-art" },
-  ];
+  var topics = ["second-empire", "realism", "impressionism", "post-impressionism", "avant-garde-sculpture", "art-1010-ddp", "ceramics-glass", "sculpture",
+    "painting-materials-techniques", "printmaking", "tools-understanding-art"];
 
-  Promise.map(requests, function (obj) {
+  let requests = [];
+  let requestsVideos = [];
+  let topicsLength = topics.length;
+
+  for (let i = 0; i < topicsLength; i++) {
+    requests.push({ url: apiUrl + topics[i] });
+    requestsVideos.push({ url: apiUrl + topics[i] + "/videos" });
+  }
+
+  Promise.map(requests.concat(requestsVideos), function (obj) {
     return request(obj).then(function (body) {
       return JSON.parse(body);
     });
   }).then(function (results) {
-    for (let i = 0; i < results.length; i++) {
-      let result = results[i];
-      if (i < artImages.length) {
-        result.photo_url = eisteinyUrl + "images/" + artImages[i];
-      }
+    let resObjs = [];
+    for (let i = 0; i < topicsLength; i++) {
+      let resInfo = results[i];
+      let resVideos = results[topicsLength + i];
+      let resObj = {};
+      resObj.title = resInfo.title;
+      resObj.description = resInfo.description;
 
+      let lessons = []
+      for (let i = 0; i < resVideos.length; i++) {
+        let newLesson = {}
+        newLesson.title = resVideos[i].title;
+        newLesson.description = resVideos[i].description;
+        newLesson.image_url = resVideos[i].download_urls.png;
+        newLesson.video_url = resVideos[i].download_urls.mp4;
+        lessons.push(newLesson)
+      }
+      resObj.lessons = lessons;
+      resObjs.push(resObj);
     }
-    let response = JSON.parse(`{ "standalone_title": "Arts", "children": ${JSON.stringify(results)} }`);
+    let response = JSON.parse(`{ "standalone_title": "Arts", "children": ${JSON.stringify(resObjs)} }`);
     console.log("response = ", response);
     res.json(response);
   }, function (err) {
