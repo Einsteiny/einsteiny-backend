@@ -92,7 +92,7 @@ function requestCategory(topics, categoryName, res) {
       resObjs.push(resObj);
     }
     console.error("resobjs = ", resObjs);
-    let response = JSON.parse(`{ "standalone_title": "${categoryName}", "children": ${JSON.stringify(resObjs)} }`);
+    let response = JSON.parse(`{ "title": "${categoryName}", "courses": ${JSON.stringify(resObjs)} }`);
     console.log("response = ", response);
     res.json(response);
   }, function (err) {
