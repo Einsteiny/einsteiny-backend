@@ -56,11 +56,7 @@ app.get('/test', function (req, res) {
 
 var eisteinyUrl = "https://einsteiny.herokuapp.com/";
 
-app.get('/humanities', function (req, res) {
-  // create request objects
-  var topics = ["second-empire", "realism", "impressionism", "post-impressionism", "avant-garde-sculpture", "art-1010-ddp", "ceramics-glass", "sculpture",
-    "painting-materials-techniques", "printmaking", "tools-understanding-art"];
-
+function requestCategory(topics, categoryName, res) {
   let requests = [];
   let requestsVideos = [];
   let topicsLength = topics.length;
@@ -95,7 +91,8 @@ app.get('/humanities', function (req, res) {
       resObj.lessons = lessons;
       resObjs.push(resObj);
     }
-    let response = JSON.parse(`{ "standalone_title": "Arts", "children": ${JSON.stringify(resObjs)} }`);
+    console.error("resobjs = ", resObjs);
+    let response = JSON.parse(`{ "standalone_title": "${categoryName}", "children": ${JSON.stringify(resObjs)} }`);
     console.log("response = ", response);
     res.json(response);
   }, function (err) {
@@ -103,88 +100,36 @@ app.get('/humanities', function (req, res) {
     // handle all your errors here
     res.json(JSON.parse(fs.readFileSync('content/humanities.json', 'utf-8')));
   });
+
+}
+
+app.get('/humanities', function (req, res) {
+  // create request objects
+  let topics = ["second-empire", "realism", "impressionism", "post-impressionism", "avant-garde-sculpture", "art-1010-ddp", "ceramics-glass", "sculpture",
+    "painting-materials-techniques", "printmaking", "tools-understanding-art"];
+
+  requestCategory(topics, "Arts", res);
+
 });
 
 app.get('/economics-finance-domain', function (req, res) {
-  var requests = [
-    { url: apiUrl + "demand-curve-tutorial" },
-    { url: apiUrl + "supply-curve-tutorial" },
-    { url: apiUrl + "market-equilibrium-tutorial" },
-    { url: apiUrl + "oil-prices-tutorial" },
-    { url: apiUrl + "perfect-competition" },
-    { url: apiUrl + "monopolies-tutorial" },
-    { url: apiUrl + "monopolistic-competition-oligop" },
-    { url: apiUrl + "stocks-intro-tutorial" }
-  ];
-
-  Promise.map(requests, function (obj) {
-    return request(obj).then(function (body) {
-      return JSON.parse(body);
-    });
-  }).then(function (results) {
-    let response = JSON.parse(`{ "standalone_title": "Economics & finance", "children": ${JSON.stringify(results)} }`);
-    console.log("response = ", response);
-    res.json(response);
-  }, function (err) {
-    console.error(err);
-    // handle all your errors here
-    res.json(JSON.parse(fs.readFileSync('content/humanities.json', 'utf-8')));
-  });
+  let topics = ["demand-curve-tutorial", "supply-curve-tutorial", "market-equilibrium-tutorial", "oil-prices-tutorial",  "perfect-competition", "monopolies-tutorial", "monopolistic-competition-oligop", "stocks-intro-tutorial"]
+ 
+requestCategory(topics, "Economics & finance", res);
+  
 });
 
 app.get('/computing', function (req, res) {
-  var requests = [{ url: apiUrl + "meet-the-computing-professional" },
-  { url: apiUrl + "internet-works-intro" },
-  { url: apiUrl + "moderninfotheory" },
-  { url: apiUrl + "modern-crypt" },
-    // { url: apiUrl + "" },
-    // { url: apiUrl + "" },
-    // { url: apiUrl + "" },
-    // { url: apiUrl + "" },
-    // { url: apiUrl + "" }
-  ];
+  let topics = ["meet-the-computing-professional", "internet-works-intro", "moderninfotheory", "modern-crypt"];
 
-  Promise.map(requests, function (obj) {
-    return request(obj).then(function (body) {
-      return JSON.parse(body);
-    });
-  }).then(function (results) {
-    let response = JSON.parse(`{ "standalone_title": "Computing", "children": ${JSON.stringify(results)} }`);
-    console.log("response = ", response);
-    res.json(response);
-  }, function (err) {
-    console.error(err);
-    // handle all your errors here
-    res.json(JSON.parse(fs.readFileSync('content/humanities.json', 'utf-8')));
-  });
-
+  requestCategory(topics, "Computing", res);
 });
 
 app.get('/science', function (req, res) {
-  var requests = [{ url: apiUrl + "introduction-to-the-atom" },
-  { url: apiUrl + "introduction-to-compounds" },
-  { url: apiUrl + "big-bang-expansion-topic" },
-  { url: apiUrl + "intro-to-ee" },
-    // { url: apiUrl + "" },
-    // { url: apiUrl + "" },
-    // { url: apiUrl + "" },
-    // { url: apiUrl + "" },
-    // { url: apiUrl + "" }
-  ];
-
-  Promise.map(requests, function (obj) {
-    return request(obj).then(function (body) {
-      return JSON.parse(body);
-    });
-  }).then(function (results) {
-    let response = JSON.parse(`{ "standalone_title": "Science", "children": ${JSON.stringify(results)} }`);
-    console.log("response = ", response);
-    res.json(response);
-  }, function (err) {
-    console.error(err);
-    // handle all your errors here
-    res.json(JSON.parse(fs.readFileSync('content/humanities.json', 'utf-8')));
-  });
+  let topics = ["introduction-to-the-atom", "introduction-to-compounds", "big-bang-expansion-topic", "intro-to-ee"];
+ 
+requestCategory(topics, "Science", res);
+  
 });
 
 
