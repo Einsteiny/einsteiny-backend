@@ -76,6 +76,7 @@ function requestCategory(topics, categoryName, res) {
       let resInfo = results[i];
       let resVideos = results[topicsLength + i];
       let resObj = {};
+      resObj.id = `${resInfo.id}_${resInfo.creation_date}`
       resObj.title = resInfo.title;
       resObj.description = resInfo.description;
 
