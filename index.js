@@ -11,7 +11,13 @@ var request = require('request-promise');
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
-var apiUrl = "https://www.khanacademy.org/api/v1/topic/";
+var pushConfig = {};
+if (process.env.GCM_SENDER_ID && process.env.GCM_API_KEY) {
+  pushConfig['android'] = {
+    senderId: process.env.GCM_SENDER_ID || '',
+    apiKey: process.env.GCM_API_KEY || ''
+  };
+}
 
 if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
@@ -19,6 +25,7 @@ if (!databaseUri) {
 
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
+  push: pushConfig,
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
@@ -34,8 +41,8 @@ var api = new ParseServer({
 var app = express();
 
 // Serve static assets from the /public folder
-//  app.use('/public', express.static(path.join(__dirname, '/public')));
-app.use(express.static('public'));
+app.use('/public', express.static(path.join(__dirname, '/public')));
+// app.use(express.static('public'));
 
 
 
@@ -55,6 +62,7 @@ app.get('/test', function (req, res) {
 });
 
 var eisteinyUrl = "https://einsteiny.herokuapp.com/";
+var apiUrl = "https://www.khanacademy.org/api/v1/topic/";
 
 function requestCategory(topics, categoryName, res) {
   let requests = [];
@@ -114,10 +122,10 @@ app.get('/humanities', function (req, res) {
 });
 
 app.get('/economics-finance-domain', function (req, res) {
-  let topics = ["demand-curve-tutorial", "supply-curve-tutorial", "market-equilibrium-tutorial", "oil-prices-tutorial",  "perfect-competition", "monopolies-tutorial", "monopolistic-competition-oligop", "stocks-intro-tutorial"]
- 
-requestCategory(topics, "Economics & finance", res);
-  
+  let topics = ["demand-curve-tutorial", "supply-curve-tutorial", "market-equilibrium-tutorial", "oil-prices-tutorial", "perfect-competition", "monopolies-tutorial", "monopolistic-competition-oligop", "stocks-intro-tutorial"]
+
+  requestCategory(topics, "Economics & finance", res);
+
 });
 
 app.get('/computing', function (req, res) {
@@ -128,9 +136,9 @@ app.get('/computing', function (req, res) {
 
 app.get('/science', function (req, res) {
   let topics = ["introduction-to-the-atom", "introduction-to-compounds", "big-bang-expansion-topic", "intro-to-ee"];
- 
-requestCategory(topics, "Science", res);
-  
+
+  requestCategory(topics, "Science", res);
+
 });
 
 
