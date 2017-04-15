@@ -10,6 +10,15 @@ var kue = require('kue');
 var Promise = require("bluebird");
 var request = require('request-promise');
 
+kue.redis.createClient = function() {
+    var redisUrl = url.parse(process.env.REDIS_URL)
+      , client = redis.createClient(redisUrl.port, redisUrl.hostname);
+    if (redisUrl.auth) {
+        client.auth(redisUrl.auth.split(":")[1]);
+    }
+    return client;
+};
+
 // create our job queue
 var jobs = kue.createQueue();
 
@@ -210,6 +219,4 @@ Parse.Cloud.define('subscribe', function (request, response) {
   response.success('success');
 });
 
-// start the UI
-kue.app.listen(3000);
-console.log('UI started on port 3000');
+app.use(kue.app);
