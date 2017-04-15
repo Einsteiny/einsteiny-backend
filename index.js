@@ -9,9 +9,6 @@ var fs = require('fs');
 var Promise = require("bluebird");
 var request = require('request-promise');
 
-// create our job queue
-var jobs = kue.createQueue();
-
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
 var pushConfig = {};
@@ -46,7 +43,6 @@ var app = express();
 // Serve static assets from the /public folder
 app.use('/public', express.static(path.join(__dirname, '/public')));
 // app.use(express.static('public'));
-
 
 
 // Serve the Parse API on the /parse URL prefix
@@ -151,7 +147,6 @@ var httpServer = require('http').createServer(app);
 httpServer.listen(port, function () {
   console.log('parse-server-example running on port ' + port + '.');
 });
-
 
 
 
