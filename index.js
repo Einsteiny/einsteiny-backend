@@ -6,6 +6,7 @@ var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 var fs = require('fs');
 var kue = require('kue');
+var redis = require('kue/node_modules/redis');
 
 var Promise = require("bluebird");
 var request = require('request-promise');
