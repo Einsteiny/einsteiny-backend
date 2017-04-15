@@ -5,10 +5,24 @@ var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 var fs = require('fs');
+var kue = require('kue');
+var redis = require('redis');
 
 var Promise = require("bluebird");
 var request = require('request-promise');
 
+<<<<<<< HEAD
+=======
+kue.redis.createClient = function() {
+    var redisUrl = url.parse(process.env.REDIS_URL)
+      , client = redis.createClient(redisUrl.port, redisUrl.hostname);
+    if (redisUrl.auth) {
+        client.auth(redisUrl.auth.split(":")[1]);
+    }
+    return client;
+};
+
+>>>>>>> fc0330173c39f2acf1a6854aca602186927a6576
 // create our job queue
 var jobs = kue.createQueue();
 
@@ -209,3 +223,7 @@ Parse.Cloud.define('subscribe', function (request, response) {
   response.success('success');
 });
 
+<<<<<<< HEAD
+=======
+app.use(kue.app);
+>>>>>>> fc0330173c39f2acf1a6854aca602186927a6576
