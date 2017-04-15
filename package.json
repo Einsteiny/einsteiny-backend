@@ -14,7 +14,8 @@
     "parse": "~1.8.0",
     "bluebird":"3.5.0",
     "request-promise":"4.2.0",
-    "parse-server": "*"
+    "parse-server": "*",
+    "kue": "0.11.5"
   },
   "scripts": {
     "start": "node index.js"
