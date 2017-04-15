@@ -15,7 +15,8 @@
     "bluebird":"3.5.0",
     "request-promise":"4.2.0",
     "parse-server": "*",
-    "kue": "0.11.5"
+    "kue": "0.11.5",
+    "redis": "2.7.1"
   },
   "scripts": {
     "start": "node index.js"
