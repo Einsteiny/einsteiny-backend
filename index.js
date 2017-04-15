@@ -153,4 +153,9 @@ httpServer.listen(port, function () {
 // This will enable the Live Query real-time server
 ParseServer.createLiveQueryServer(httpServer);
 
+var kue = require('kue')
+var redisUrl = process.env.REDIS_URL 
+kue.createQueue({ redis: redisUrl })
+app.use('/kue', kue.app) // For the kue dashboard
+
 
