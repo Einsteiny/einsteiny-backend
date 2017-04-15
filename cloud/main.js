@@ -1,4 +1,4 @@
-var kue = require('kue');
+
 
 // create our job queue
 var jobs = kue.createQueue();
@@ -59,6 +59,6 @@ Parse.Cloud.define('subscribe', function (request, response) {
 });
 
 
-// start the UI
-kue.app.listen(3000);
-console.log('UI started on port 3000');
+// // start the UI
+// kue.app.listen(3000);
+// console.log('UI started on port 3000');
