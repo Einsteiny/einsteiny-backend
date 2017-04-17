@@ -83,7 +83,8 @@ function requestCategory(topics, categoryName, res) {
       let resInfo = results[i];
       let resVideos = results[topicsLength + i];
       let resObj = {};
-      resObj.id = `${resInfo.id}_${resInfo.creation_date}`
+      let courseId = `${resInfo.id}_${resInfo.creation_date}`;
+      resObj.id = courseId;
       resObj.title = resInfo.title;
       resObj.description = resInfo.description;
 
@@ -91,6 +92,7 @@ function requestCategory(topics, categoryName, res) {
       for (let i = 0; i < resVideos.length; i++) {
         let newLesson = {}
         newLesson.title = resVideos[i].title;
+        newLesson.courseId = courseId;
         newLesson.description = resVideos[i].description;
         newLesson.image_url = resVideos[i].download_urls.png;
         newLesson.video_url = resVideos[i].download_urls.mp4;
