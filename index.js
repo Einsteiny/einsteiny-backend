@@ -91,6 +91,7 @@ function requestCategory(topics, categoryName, res) {
       let lessons = []
       for (let i = 0; i < resVideos.length; i++) {
         let newLesson = {}
+        newLesson.id = courseId + i;
         newLesson.title = resVideos[i].title;
         newLesson.courseId = courseId;
         newLesson.description = resVideos[i].description;
