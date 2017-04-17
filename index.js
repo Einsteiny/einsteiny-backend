@@ -175,7 +175,7 @@ Parse.Cloud.define('subscribe', function (request, response) {
 
 
   // one minute
-  var minute = 6000;
+  var minute = 600;
 
   var job = jobs.create('parseCloud', {
     course: courseId
