@@ -172,6 +172,7 @@ Parse.Cloud.define('subscribe', function (request, response) {
 
   var sender = JSON.parse(customData).sender;
   var courseId = JSON.parse(customData).course;
+  var time = JSON.parse(customData).time;
 
 
   // one minute
@@ -180,7 +181,7 @@ Parse.Cloud.define('subscribe', function (request, response) {
   var job = jobs.create('parseCloud', {
     course: courseId
 
-  }).delay(minute * 1 * 1)
+  }).delay(time - Date.now())
     .priority('high')
     .save();
 
