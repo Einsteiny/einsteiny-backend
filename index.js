@@ -143,6 +143,10 @@ app.get('/science', function (req, res) {
 
 });
 
+app.get('/popular', function (req, res) {
+  let topics = ["mars-modern-exploration","beginners-guide-20-21", "asthma2", "brain-teasers"];
+  requestCategory(topics, "Popular", res)
+})
 
 
 var port = process.env.PORT || 1337;
