@@ -117,7 +117,7 @@ function requestCategory(topics, categoryName, res) {
 app.get('/humanities', function (req, res) {
   // create request objects
   let topics = ["second-empire", "realism", "impressionism", "post-impressionism", "avant-garde-sculpture", "art-1010-ddp", "ceramics-glass", "sculpture",
-    "painting-materials-techniques", "printmaking", "tools-understanding-art"];
+    "painting-materials-techniques", "printmaking"];
 
   requestCategory(topics, "Arts", res);
 
