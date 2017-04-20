@@ -88,6 +88,7 @@ function requestCategory(topics, categoryName, res) {
       resObj.title = resInfo.title;
       resObj.description = resInfo.description;
 
+
       let lessons = []
       for (let i = 0; i < resVideos.length; i++) {
         let newLesson = {}
@@ -100,6 +101,7 @@ function requestCategory(topics, categoryName, res) {
         lessons.push(newLesson)
       }
       resObj.lessons = lessons;
+      resObj.complexity = generateRandomComplexity();
       resObjs.push(resObj);
     }
     console.error("resobjs = ", resObjs);
@@ -113,6 +115,15 @@ function requestCategory(topics, categoryName, res) {
   });
 
 }
+
+function generateRandomComplexity() {
+  var min = 2.0,
+    max = 5.0,
+    highlightedNumber = Math.random() * (max - min) + min;
+
+  return highlightedNumber.toFixed(3);
+
+};
 
 app.get('/humanities', function (req, res) {
   // create request objects
@@ -144,7 +155,7 @@ app.get('/science', function (req, res) {
 });
 
 app.get('/popular', function (req, res) {
-  let topics = ["mars-modern-exploration","beginners-guide-20-21", "asthma2", "brain-teasers"];
+  let topics = ["mars-modern-exploration", "beginners-guide-20-21", "asthma2", "brain-teasers"];
   requestCategory(topics, "Popular", res)
 })
 
@@ -177,10 +188,6 @@ Parse.Cloud.define('subscribe', function (request, response) {
   var sender = JSON.parse(customData).sender;
   var courseId = JSON.parse(customData).course;
   var time = JSON.parse(customData).time;
-
-
-  // one minute
-  var minute = 600;
 
   var job = jobs.create('parseCloud', {
     course: courseId
