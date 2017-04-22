@@ -94,6 +94,7 @@ function requestCategory(topics, categoryName, res) {
       } else {
         resObj.category = "Science";
       }
+      resObj.photo_url = eisteinyUrl + "images/" + images[i % images.length];
 
       resObj.id = courseId;
       resObj.title = resInfo.title;
@@ -144,6 +145,8 @@ let economicsTopics = ["demand-curve-tutorial", "supply-curve-tutorial", "market
 let computingTopics = ["meet-the-computing-professional", "internet-works-intro", "moderninfotheory", "modern-crypt"];
 
 let scienceTopics = ["introduction-to-the-atom", "introduction-to-compounds", "big-bang-expansion-topic", "intro-to-ee"];
+let images = ["second-empire", "realism", "impressionism", "post-impressionism", "avant-garde-sculpture", "art-1010-ddp", "ceramics-glass", "sculpture",
+  "painting-materials-techniques", "printmaking"];
 
 app.get('/humanities', function (req, res) {
   // create request objects
