@@ -94,7 +94,7 @@ function requestCategory(topics, categoryName, res) {
       } else {
         resObj.category = "Science";
       }
-      resObj.photo_url = eisteinyUrl + "images/" + images[i % images.length] + ".jpg";
+      resObj.photo_url = eisteinyUrl + "images/" + images[i % images.length] ;
 
       resObj.id = courseId;
       resObj.title = resInfo.title;
@@ -146,8 +146,15 @@ let computingTopics = ["meet-the-computing-professional", "internet-works-intro"
 
 let scienceTopics = ["introduction-to-the-atom", "introduction-to-compounds", "big-bang-expansion-topic", "intro-to-ee"];
 
-let images = ["second-empire", "realism", "impressionism", "post-impressionism", "avant-garde-sculpture", "art-1010-ddp", "ceramics-glass", "sculpture",
-  "painting-materials-techniques", "printmaking", "demand-curve-tutorial", "supply-curve-tutorial", "market-equilibrium-tutorial", "oil-prices-tutorial", "perfect-competition", "monopolies-tutorial", "monopolistic-competition-oligop", "stocks-intro-tutorial"];
+let images = ["second-empire.jpg", "realism.jpg", "impressionism.jpg", "post-impressionism.jpg", "avant-garde-sculpture.jpg", 
+"art-1010-ddp.jpg", "ceramics-glass.jpg", "sculpture.jpg",
+  "painting-materials-techniques.jpg", "printmaking.jpg", "demand-curve-tutorial.jpg", "supply-curve-tutorial.jpg",
+   "market-equilibrium-tutorial.jpg", "oil-prices-tutorial.jpg", "perfect-competition.jpg", "monopolies-tutorial.jpg", 
+   "monopolistic-competition-oligop.jpg", "stocks-intro-tutorial.jpg",
+   "meet-the-computing-professional.jpeg", "internet-works-intro.jpg", "moderninfotheory.jpg", "modern-crypt.jpg",
+   "introduction-to-the-atom.jpeg", "introduction-to-compounds.png", "big-bang-expansion-topic.jpg", "intro-to-ee.jpg"
+   
+   ];
 
 app.get('/humanities', function (req, res) {
   // create request objects
