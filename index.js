@@ -85,7 +85,16 @@ function requestCategory(topics, categoryName, res) {
       let resVideos = results[topicsLength + i];
       let resObj = {};
       let courseId = `${resInfo.id}_${resInfo.creation_date}`;
-      resObj.category = resInfo.domain_slug;
+      if (resInfo.domain_slug == "humanities") {
+        resObj.category = "Arts";
+      } else if (resInfo.domain_slug == "economics-finance-domain") {
+        resObj.category = "Economics & finance";
+      } else if (resInfo.domain_slug == "computing") {
+        resObj.category = "Computing";
+      } else {
+        resObj.category = "Science";
+      }
+
       resObj.id = courseId;
       resObj.title = resInfo.title;
       resObj.description = resInfo.description;
