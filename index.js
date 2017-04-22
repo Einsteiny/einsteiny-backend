@@ -94,7 +94,7 @@ function requestCategory(topics, categoryName, res) {
       } else {
         resObj.category = "Science";
       }
-      resObj.photo_url = eisteinyUrl + "images/" + images[i % images.length];
+      resObj.photo_url = eisteinyUrl + "images/" + images[i % images.length] + ".jpg";
 
       resObj.id = courseId;
       resObj.title = resInfo.title;
