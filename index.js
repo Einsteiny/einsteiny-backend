@@ -40,6 +40,7 @@ var api = new ParseServer({
 
 var app = express();
 
+
 // Serve static assets from the /public folder
 app.use('/public', express.static(path.join(__dirname, '/public')));
 // app.use(express.static('public'));
@@ -84,6 +85,7 @@ function requestCategory(topics, categoryName, res) {
       let resVideos = results[topicsLength + i];
       let resObj = {};
       let courseId = `${resInfo.id}_${resInfo.creation_date}`;
+      resObj.category = categoryName;
       resObj.id = courseId;
       resObj.title = resInfo.title;
       resObj.description = resInfo.description;
@@ -125,30 +127,32 @@ function generateRandomComplexity() {
 
 };
 
+let artTopics = ["second-empire", "realism", "impressionism", "post-impressionism", "avant-garde-sculpture", "art-1010-ddp", "ceramics-glass", "sculpture",
+  "painting-materials-techniques", "printmaking"];
+
+let economicsTopics = ["demand-curve-tutorial", "supply-curve-tutorial", "market-equilibrium-tutorial", "oil-prices-tutorial", "perfect-competition", "monopolies-tutorial", "monopolistic-competition-oligop", "stocks-intro-tutorial"];
+
+let computingTopics = ["meet-the-computing-professional", "internet-works-intro", "moderninfotheory", "modern-crypt"];
+
+let scienceTopics = ["introduction-to-the-atom", "introduction-to-compounds", "big-bang-expansion-topic", "intro-to-ee"];
+
 app.get('/humanities', function (req, res) {
   // create request objects
-  let topics = ["second-empire", "realism", "impressionism", "post-impressionism", "avant-garde-sculpture", "art-1010-ddp", "ceramics-glass", "sculpture",
-    "painting-materials-techniques", "printmaking"];
-
-  requestCategory(topics, "Arts", res);
+  requestCategory(artTopics, "Arts", res);
 
 });
 
+
 app.get('/economics-finance-domain', function (req, res) {
-  let topics = ["demand-curve-tutorial", "supply-curve-tutorial", "market-equilibrium-tutorial", "oil-prices-tutorial", "perfect-competition", "monopolies-tutorial", "monopolistic-competition-oligop", "stocks-intro-tutorial"]
-
-  requestCategory(topics, "Economics & finance", res);
-
+  requestCategory(economicsTopics, "Economics & finance", res);
 });
 
 app.get('/computing', function (req, res) {
-  let topics = ["meet-the-computing-professional", "internet-works-intro", "moderninfotheory", "modern-crypt"];
-
-  requestCategory(topics, "Computing", res);
+  requestCategory(computingTopics, "Computing", res);
 });
 
 app.get('/science', function (req, res) {
-  let topics = ["introduction-to-the-atom", "introduction-to-compounds", "big-bang-expansion-topic", "intro-to-ee"];
+
 
   requestCategory(topics, "Science", res);
 
@@ -158,6 +162,15 @@ app.get('/popular', function (req, res) {
   let topics = ["mars-modern-exploration", "beginners-guide-20-21", "asthma2", "brain-teasers"];
   requestCategory(topics, "Popular", res)
 })
+
+app.get('all-courses', function (req, res) {
+
+  let topics = ["second-empire", "realism", "impressionism", "post-impressionism", "avant-garde-sculpture", "art-1010-ddp", "ceramics-glass", "sculpture",
+    "painting-materials-techniques", "printmaking", "demand-curve-tutorial", "supply-curve-tutorial", "market-equilibrium-tutorial", "oil-prices-tutorial",
+    "perfect-competition", "monopolies-tutorial", "monopolistic-competition-oligop", "stocks-intro-tutorial"];
+
+
+});
 
 
 var port = process.env.PORT || 1337;
