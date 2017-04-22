@@ -85,7 +85,17 @@ function requestCategory(topics, categoryName, res) {
       let resVideos = results[topicsLength + i];
       let resObj = {};
       let courseId = `${resInfo.id}_${resInfo.creation_date}`;
-      resObj.category = categoryName;
+      if (i < artTopics.length) {
+        resObj.category = "Arts";
+      } else if (i < economicsTopics.length) {
+        resObj.category = "Economics & finance";
+      } else if (i < computingTopics.length) {
+        resObj.category = "Computing";
+      } else {
+        resObj.category = "Science";
+      }
+
+
       resObj.id = courseId;
       resObj.title = resInfo.title;
       resObj.description = resInfo.description;
