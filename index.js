@@ -152,9 +152,7 @@ app.get('/computing', function (req, res) {
 });
 
 app.get('/science', function (req, res) {
-
-
-  requestCategory(topics, "Science", res);
+  requestCategory(scienceTopics, "Science", res);
 
 });
 
@@ -163,13 +161,8 @@ app.get('/popular', function (req, res) {
   requestCategory(topics, "Popular", res)
 })
 
-app.get('all-courses', function (req, res) {
-
-  let topics = ["second-empire", "realism", "impressionism", "post-impressionism", "avant-garde-sculpture", "art-1010-ddp", "ceramics-glass", "sculpture",
-    "painting-materials-techniques", "printmaking", "demand-curve-tutorial", "supply-curve-tutorial", "market-equilibrium-tutorial", "oil-prices-tutorial",
-    "perfect-competition", "monopolies-tutorial", "monopolistic-competition-oligop", "stocks-intro-tutorial"];
-
-
+app.get('/all-courses', function (req, res) {
+  requestCategory(artTopics.concat(economicsTopics).concat(computingTopics).concat(scienceTopics), "All", res)
 });
 
 
