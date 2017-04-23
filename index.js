@@ -148,7 +148,7 @@ let computingTopics = ["meet-the-computing-professional", "internet-works-intro"
 
 let scienceTopics = ["introduction-to-the-atom", "introduction-to-compounds", "big-bang-expansion-topic", "intro-to-ee"];
 
-let topics = ["mars-modern-exploration", "beginners-guide-20-21", "asthma2", "brain-teasers"];
+let popularTopics = ["mars-modern-exploration", "beginners-guide-20-21", "asthma2", "brain-teasers"];
 
 let images = ["second-empire.jpg", "realism.jpg", "impressionism.jpg", "post-impressionism.jpg", "avant-garde-sculpture.jpg", 
 "art-1010-ddp.jpg", "ceramics-glass.jpg", "sculpture.jpg",
@@ -182,11 +182,11 @@ app.get('/science', function (req, res) {
 });
 
 app.get('/popular', function (req, res) {
-  requestCategory(topics, "Popular", res)
+  requestCategory(popularTopics, "Popular", res)
 })
 
 app.get('/all-courses', function (req, res) {
-  requestCategory(artTopics.concat(economicsTopics).concat(computingTopics).concat(scienceTopics), "All", res)
+  requestCategory(artTopics.concat(economicsTopics).concat(computingTopics).concat(scienceTopics).concat(popularTopics), "All", res)
 });
 
 
