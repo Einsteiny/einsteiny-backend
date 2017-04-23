@@ -91,10 +91,12 @@ function requestCategory(topics, categoryName, res) {
         resObj.category = "Economics & finance";
       } else if (resInfo.domain_slug == "computing") {
         resObj.category = "Computing";
-      } else if (resInfo.domain_slug == "popular") {
-        resObj.category = "Popular";
       } else {
         resObj.category = "Science";
+      }
+
+      if (popularTopics.indexOf(resObj.node_slug) > -1) {
+        resObj.category = "Popular";
       }
       resObj.photo_url = eisteinyUrl + "images/" + images[i % images.length] ;
 
