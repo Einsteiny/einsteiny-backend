@@ -91,6 +91,8 @@ function requestCategory(topics, categoryName, res) {
         resObj.category = "Economics & finance";
       } else if (resInfo.domain_slug == "computing") {
         resObj.category = "Computing";
+      } else if (resInfo.domain_slug == "popular") {
+        resObj.category = "Popular";
       } else {
         resObj.category = "Science";
       }
@@ -146,13 +148,16 @@ let computingTopics = ["meet-the-computing-professional", "internet-works-intro"
 
 let scienceTopics = ["introduction-to-the-atom", "introduction-to-compounds", "big-bang-expansion-topic", "intro-to-ee"];
 
+let topics = ["mars-modern-exploration", "beginners-guide-20-21", "asthma2", "brain-teasers"];
+
 let images = ["second-empire.jpg", "realism.jpg", "impressionism.jpg", "post-impressionism.jpg", "avant-garde-sculpture.jpg", 
 "art-1010-ddp.jpg", "ceramics-glass.jpg", "sculpture.jpg",
   "painting-materials-techniques.jpg", "printmaking.jpg", "demand-curve-tutorial.jpg", "supply-curve-tutorial.jpg",
    "market-equilibrium-tutorial.jpg", "oil-prices-tutorial.jpg", "perfect-competition.jpg", "monopolies-tutorial.jpg", 
    "monopolistic-competition-oligop.jpg", "stocks-intro-tutorial.jpg",
    "meet-the-computing-professional.jpg", "internet-works-intro.jpg", "moderninfotheory.jpg", "modern-crypt.jpg",
-   "introduction-to-the-atom.jpeg", "introduction-to-compounds.png", "big-bang-expansion-topic.jpg", "intro-to-ee.jpg"
+   "introduction-to-the-atom.jpeg", "introduction-to-compounds.png", "big-bang-expansion-topic.jpg", "intro-to-ee.jpg",
+   "mars-modern-exploration.jpg", "beginners-guide-20-21.jpg", "asthma2.jpg", "brain-teasers.jpg"
    
    ];
 
@@ -177,7 +182,6 @@ app.get('/science', function (req, res) {
 });
 
 app.get('/popular', function (req, res) {
-  let topics = ["mars-modern-exploration", "beginners-guide-20-21", "asthma2", "brain-teasers"];
   requestCategory(topics, "Popular", res)
 })
 
