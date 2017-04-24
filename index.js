@@ -98,7 +98,7 @@ function requestCategory(topics, categoryName, res) {
       if (popularTopics.indexOf(resObj.node_slug) > -1) {
         resObj.category = "Popular";
       }
-      resObj.photo_url = eisteinyUrl + "images/" + images[i % images.length] ;
+      resObj.photo_url = eisteinyUrl + "images/" + images[i % images.length];
 
       resObj.id = courseId;
       resObj.title = resInfo.title;
@@ -117,7 +117,13 @@ function requestCategory(topics, categoryName, res) {
         lessons.push(newLesson)
       }
       resObj.lessons = lessons;
-      resObj.complexity = generateRandomComplexity();
+      if (resObj.title == "Sculpture" || resObj.title == "Market equilibrium"
+        || resObj.title == "Post-Impressionism" || resObj.title == "Painting") {
+        resObj.complexity = 5.0;
+      } else {
+        resObj.complexity = generateRandomComplexity();
+      }
+
       resObjs.push(resObj);
     }
     console.error("resobjs = ", resObjs);
@@ -152,16 +158,16 @@ let scienceTopics = ["introduction-to-the-atom", "introduction-to-compounds", "b
 
 let popularTopics = ["mars-modern-exploration", "beginners-guide-20-21", "asthma2", "brain-teasers"];
 
-let images = ["second-empire.jpg", "realism.jpg", "impressionism.jpg", "post-impressionism.jpg", "avant-garde-sculpture.jpg", 
-"art-1010-ddp.jpg", "ceramics-glass.jpg", "sculpture.jpg",
+let images = ["second-empire.jpg", "realism.jpg", "impressionism.jpg", "post-impressionism.jpg", "avant-garde-sculpture.jpg",
+  "art-1010-ddp.jpg", "ceramics-glass.jpg", "sculpture.jpg",
   "painting-materials-techniques.jpg", "printmaking.jpg", "demand-curve-tutorial.jpg", "supply-curve-tutorial.jpg",
-   "market-equilibrium-tutorial.jpg", "oil-prices-tutorial.jpg", "perfect-competition.jpg", "monopolies-tutorial.jpg", 
-   "monopolistic-competition-oligop.jpg", "stocks-intro-tutorial.jpg",
-   "meet-the-computing-professional.jpg", "internet-works-intro.jpg", "moderninfotheory.jpg", "modern-crypt.jpg",
-   "introduction-to-the-atom.jpeg", "introduction-to-compounds.png", "big-bang-expansion-topic.jpg", "intro-to-ee.jpg",
-   "mars-modern-exploration.jpg", "beginners-guide-20-21.jpg", "asthma2.jpg", "brain-teasers.jpg"
-   
-   ];
+  "market-equilibrium-tutorial.jpg", "oil-prices-tutorial.jpg", "perfect-competition.jpg", "monopolies-tutorial.jpg",
+  "monopolistic-competition-oligop.jpg", "stocks-intro-tutorial.jpg",
+  "meet-the-computing-professional.jpg", "internet-works-intro.jpg", "moderninfotheory.jpg", "modern-crypt.jpg",
+  "introduction-to-the-atom.jpeg", "introduction-to-compounds.png", "big-bang-expansion-topic.jpg", "intro-to-ee.jpg",
+  "mars-modern-exploration.jpg", "beginners-guide-20-21.jpg", "asthma2.jpg", "brain-teasers.jpg"
+
+];
 
 app.get('/humanities', function (req, res) {
   // create request objects
