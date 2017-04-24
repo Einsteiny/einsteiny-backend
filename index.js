@@ -117,7 +117,7 @@ function requestCategory(topics, categoryName, res) {
         lessons.push(newLesson)
       }
       resObj.lessons = lessons;
-      if (resObj.title == "Sculpture" || resObj.title == "Market equilibrium"
+      if (resObj.title == "Art 1010" || resObj.title == "Market equilibrium"
         || resObj.title == "Post-Impressionism" || resObj.title == "Painting") {
         resObj.complexity = 5.0;
       } else {
