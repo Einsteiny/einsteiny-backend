@@ -71,8 +71,8 @@ var apiUrl = "https://www.khanacademy.org/api/v1/topic/";
 
 //add descriptions for courses with empty descriptions
 var descriptionsMap = {}
-descriptionsMap["copy-of-khan-academy-living-room-chats"] = 
-"Personal lessons and insights from accomplished entrepreneurs are the basis of this interview series produced by the Ewing Marion Kauffman Foundation and Khan Academy.";
+descriptionsMap["copy-of-khan-academy-living-room-chats"] =
+  "Personal lessons and insights from accomplished entrepreneurs are the basis of this interview series produced by the Ewing Marion Kauffman Foundation and Khan Academy.";
 
 
 function requestCategory(topics, categoryName, res) {
@@ -96,13 +96,14 @@ function requestCategory(topics, categoryName, res) {
       let resVideos = results[topicsLength + i];
       let resObj = {};
       let courseId = `${resInfo.id}_${resInfo.creation_date}`;
-      if (resInfo.domain_slug == "humanities") {
+
+      if (artTopics.indexOf(topics[i]) > -1) {
         resObj.category = "Arts";
-      } else if (resInfo.domain_slug == "economics-finance-domain") {
+      } else if (economicsTopics.indexOf(topics[i]) > -1) {
         resObj.category = "Entrepreneurship";
-      } else if (resInfo.domain_slug == "computing" || resInfo.domain_slug == "science") {
+      } else if (computingTopics.indexOf(topics[i]) > -1) {
         resObj.category = "Computing & Science";
-      } else {
+      } else if (historyTopics.indexOf(topics[i]) > -1) {
         resObj.category = "US History";
       }
 
@@ -163,26 +164,26 @@ function generateRandomComplexity() {
 let artTopics = ["realism", "impressionism", "post-impressionism", "avant-garde-sculpture", "art-1010-ddp", "ceramics-glass", "sculpture",
   "painting-materials-techniques", "printmaking", "intl-avant-garde", "surrealism1", "leonardo-da-vinci", "michelangelo", "high-renaissance1",
   "fauvism-matisse", "expressionism1", "cubism", "art-post-war-britain", "abstract-expressionism", "ny-school", "pop",
-  ];
+];
 
-let economicsTopics = ["copy-of-khan-academy-living-room-chats", "richard-branson", "marc-ecko", "philip-rosedale", "zach-kaplan", "ta-mccann", "ben-milne", 
-"giles-shih", "danny-oneill", "lara-morgan", "dave-smith", "jason-christiansen", "linda-jeschofnig", "lakeshia-grant", "warby-parker",
-"bottle-rocket-apps", "beth-schmidt-wishbone", "toby-rush-eyeverify"];
+let economicsTopics = ["copy-of-khan-academy-living-room-chats", "richard-branson", "marc-ecko", "philip-rosedale", "zach-kaplan", "ta-mccann", "ben-milne",
+  "giles-shih", "danny-oneill", "lara-morgan", "dave-smith", "jason-christiansen", "linda-jeschofnig", "lakeshia-grant", "warby-parker",
+  "bottle-rocket-apps", "beth-schmidt-wishbone", "toby-rush-eyeverify"];
 
 let computingTopics = ["modern-crypt", "moderninfotheory", "info-theory", "internet-works-intro", "introduction-to-the-atom", "introduction-to-compounds", "big-bang-expansion-topic", "intro-to-ee", "asthma2", "brain-teasers"];
 
 let historyTopics = ["apush-early-english-settlement", "apush-declaration-of-independence", "apush-creating-a-nation",
-"apush-age-of-jackson", "apush-culture-and-reform", "apush-slavery-and-the-civil-war", "apush-south-after-civil-war", "ap-us-history",
-"apush-us-wwii", "apush-1960s-america"];
+  "apush-age-of-jackson", "apush-culture-and-reform", "apush-slavery-and-the-civil-war", "apush-south-after-civil-war", "ap-us-history",
+  "apush-us-wwii", "apush-1960s-america"];
 
 let popularTopics = ["mars-modern-exploration", "beginners-guide-20-21", "asthma2", "brain-teasers"];
 
 let images = [
-  "second-empire.jpg", "realism.jpg", "impressionism.jpg", "post-impressionism.jpg", 
-  "avant-garde-sculpture.jpg","art-1010-ddp.jpg", "ceramics-glass.jpg", "sculpture.jpg",
-  "painting-materials-techniques.jpg", "printmaking.jpg", 
-  
-  "demand-curve-tutorial.jpg", "supply-curve-tutorial.jpg", "market-equilibrium-tutorial.jpg", 
+  "second-empire.jpg", "realism.jpg", "impressionism.jpg", "post-impressionism.jpg",
+  "avant-garde-sculpture.jpg", "art-1010-ddp.jpg", "ceramics-glass.jpg", "sculpture.jpg",
+  "painting-materials-techniques.jpg", "printmaking.jpg",
+
+  "demand-curve-tutorial.jpg", "supply-curve-tutorial.jpg", "market-equilibrium-tutorial.jpg",
   "oil-prices-tutorial.jpg", "perfect-competition.jpg", "monopolies-tutorial.jpg",
   "monopolistic-competition-oligop.jpg", "stocks-intro-tutorial.jpg",
 
