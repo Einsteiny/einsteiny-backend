@@ -99,11 +99,11 @@ function requestCategory(topics, categoryName, res) {
       if (resInfo.domain_slug == "humanities") {
         resObj.category = "Arts";
       } else if (resInfo.domain_slug == "economics-finance-domain") {
-        resObj.category = "Economics & finance";
-      } else if (resInfo.domain_slug == "computing") {
-        resObj.category = "Computing";
+        resObj.category = "Entrepreneurship";
+      } else if (resInfo.domain_slug == "computing" || resInfo.domain_slug == "science") {
+        resObj.category = "Computing & Science";
       } else {
-        resObj.category = "Science";
+        resObj.category = "US History";
       }
 
       resObj.photo_url = eisteinyUrl + "images/" + images[i % images.length];
