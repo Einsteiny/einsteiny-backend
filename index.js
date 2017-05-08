@@ -34,9 +34,9 @@ var api = new ParseServer({
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   },
   auth: {
-   facebook: {
-     appIds: process.env.FACEBOOK_APP_ID
-   }
+    facebook: {
+      appIds: process.env.FACEBOOK_APP_ID
+    }
   }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
@@ -68,6 +68,9 @@ app.get('/test', function (req, res) {
 
 var eisteinyUrl = "https://einsteiny.herokuapp.com/";
 var apiUrl = "https://www.khanacademy.org/api/v1/topic/";
+
+var descriptionsMap = {}
+descriptionsMap["copy-of-khan-academy-living-room-chats"] = "Hello"
 
 function requestCategory(topics, categoryName, res) {
   let requests = [];
@@ -107,7 +110,12 @@ function requestCategory(topics, categoryName, res) {
 
       resObj.id = courseId;
       resObj.title = resInfo.title;
-      resObj.description = resInfo.description;
+      if (resInfo.description.length == 0) {
+        resObj.description = descriptionsMap[topics[i]];
+      } else {
+        resObj.description = resInfo.description;
+      }
+
 
 
       let lessons = []
