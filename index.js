@@ -106,9 +106,6 @@ function requestCategory(topics, categoryName, res) {
         resObj.category = "Science";
       }
 
-      if (popularTopics.indexOf(resObj.node_slug) > -1) {
-        resObj.category = "Popular";
-      }
       resObj.photo_url = eisteinyUrl + "images/" + images[i % images.length];
 
       resObj.id = courseId;
@@ -163,24 +160,33 @@ function generateRandomComplexity() {
 
 };
 
-let artTopics = ["second-empire", "realism", "impressionism", "post-impressionism", "avant-garde-sculpture", "art-1010-ddp", "ceramics-glass", "sculpture",
-  "painting-materials-techniques", "printmaking"];
+let artTopics = ["realism", "impressionism", "post-impressionism", "avant-garde-sculpture", "art-1010-ddp", "ceramics-glass", "sculpture",
+  "painting-materials-techniques", "printmaking", "intl-avant-garde", "surrealism1", "leonardo-da-vinci", "michelangelo", "high-renaissance1",
+  "fauvism-matisse", "expressionism1", "cubism", "art-post-war-britain", "abstract-expressionism", "ny-school", "pop",
+  ];
 
 let economicsTopics = ["copy-of-khan-academy-living-room-chats", "richard-branson", "marc-ecko", "philip-rosedale", "zach-kaplan", "ta-mccann", "ben-milne", 
 "giles-shih", "danny-oneill", "lara-morgan", "dave-smith", "jason-christiansen", "linda-jeschofnig", "lakeshia-grant", "warby-parker",
 "bottle-rocket-apps", "beth-schmidt-wishbone", "toby-rush-eyeverify"];
 
-let computingTopics = ["modern-crypt", "moderninfotheory", "info-theory", "internet-works-intro"];
+let computingTopics = ["modern-crypt", "moderninfotheory", "info-theory", "internet-works-intro", "introduction-to-the-atom", "introduction-to-compounds", "big-bang-expansion-topic", "intro-to-ee", "asthma2", "brain-teasers"];
 
-let scienceTopics = ["introduction-to-the-atom", "introduction-to-compounds", "big-bang-expansion-topic", "intro-to-ee"];
+let historyTopics = ["apush-early-english-settlement", "apush-declaration-of-independence", "apush-creating-a-nation",
+"apush-age-of-jackson", "apush-culture-and-reform", "apush-slavery-and-the-civil-war", "apush-south-after-civil-war", "ap-us-history",
+"apush-us-wwii", "apush-1960s-america"];
 
 let popularTopics = ["mars-modern-exploration", "beginners-guide-20-21", "asthma2", "brain-teasers"];
 
-let images = ["second-empire.jpg", "realism.jpg", "impressionism.jpg", "post-impressionism.jpg", "avant-garde-sculpture.jpg",
-  "art-1010-ddp.jpg", "ceramics-glass.jpg", "sculpture.jpg",
-  "painting-materials-techniques.jpg", "printmaking.jpg", "demand-curve-tutorial.jpg", "supply-curve-tutorial.jpg",
-  "market-equilibrium-tutorial.jpg", "oil-prices-tutorial.jpg", "perfect-competition.jpg", "monopolies-tutorial.jpg",
+let images = [
+  "second-empire.jpg", "realism.jpg", "impressionism.jpg", "post-impressionism.jpg", 
+  "avant-garde-sculpture.jpg","art-1010-ddp.jpg", "ceramics-glass.jpg", "sculpture.jpg",
+  "painting-materials-techniques.jpg", "printmaking.jpg", 
+  
+  "demand-curve-tutorial.jpg", "supply-curve-tutorial.jpg", "market-equilibrium-tutorial.jpg", 
+  "oil-prices-tutorial.jpg", "perfect-competition.jpg", "monopolies-tutorial.jpg",
   "monopolistic-competition-oligop.jpg", "stocks-intro-tutorial.jpg",
+
+
   "meet-the-computing-professional.jpg", "internet-works-intro.jpg", "moderninfotheory.jpg", "modern-crypt.jpg",
   "introduction-to-the-atom.jpeg", "introduction-to-compounds.png", "big-bang-expansion-topic.jpg", "intro-to-ee.jpg",
   "mars-modern-exploration.jpg", "beginners-guide-20-21.jpg", "asthma2.jpg", "brain-teasers.jpg"
@@ -190,20 +196,19 @@ let images = ["second-empire.jpg", "realism.jpg", "impressionism.jpg", "post-imp
 app.get('/humanities', function (req, res) {
   // create request objects
   requestCategory(artTopics, "Arts", res);
-
 });
 
 
 app.get('/economics-finance-domain', function (req, res) {
-  requestCategory(economicsTopics, "Economics & finance", res);
+  requestCategory(economicsTopics, "Entrepreneurship", res);
 });
 
 app.get('/computing', function (req, res) {
-  requestCategory(computingTopics, "Computing", res);
+  requestCategory(computingTopics, "Computing & Science", res);
 });
 
-app.get('/science', function (req, res) {
-  requestCategory(scienceTopics, "Science", res);
+app.get('/ushistory', function (req, res) {
+  requestCategory(historyTopics, "US History", res);
 
 });
 
@@ -212,7 +217,7 @@ app.get('/popular', function (req, res) {
 })
 
 app.get('/all-courses', function (req, res) {
-  requestCategory(artTopics.concat(economicsTopics).concat(computingTopics).concat(scienceTopics).concat(popularTopics), "All", res)
+  requestCategory(artTopics.concat(economicsTopics).concat(computingTopics).concat(historyTopics), "All", res)
 });
 
 
