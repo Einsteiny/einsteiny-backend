@@ -131,13 +131,8 @@ function requestCategory(topics, categoryName, res) {
         lessons.push(newLesson)
       }
       resObj.lessons = lessons;
-      if (resObj.title == "Art 1010" || resObj.title == "Market equilibrium"
-        || resObj.title == "Post-Impressionism" || resObj.title == "Painting") {
-        resObj.complexity = 5.0;
-      } else {
-        resObj.complexity = generateRandomComplexity();
-      }
-
+      resObj.complexity = generateRandomComplexity();
+    
       resObjs.push(resObj);
     }
     console.error("resobjs = ", resObjs);
@@ -162,18 +157,22 @@ function generateRandomComplexity() {
 };
 
 let artTopics = ["realism", "impressionism", "post-impressionism", "avant-garde-sculpture", "art-1010-ddp", "ceramics-glass", "sculpture",
-  "painting-materials-techniques", "printmaking", "intl-avant-garde", "surrealism1", "leonardo-da-vinci", "michelangelo", "high-renaissance1",
+  //"painting-materials-techniques", "printmaking", "intl-avant-garde", "surrealism1", "leonardo-da-vinci", "michelangelo", "high-renaissance1",
   "fauvism-matisse", "expressionism1", "cubism", "art-post-war-britain", "abstract-expressionism", "ny-school", "pop",
 ];
 
 let economicsTopics = ["copy-of-khan-academy-living-room-chats", "richard-branson", "marc-ecko", "philip-rosedale", "zach-kaplan", "ta-mccann", "ben-milne",
-  "giles-shih", "danny-oneill", "lara-morgan", "dave-smith", "jason-christiansen", "linda-jeschofnig", "lakeshia-grant", "warby-parker",
+  //"giles-shih", "danny-oneill", "lara-morgan", "dave-smith", "jason-christiansen", "linda-jeschofnig", "lakeshia-grant", "warby-parker",
   "bottle-rocket-apps", "beth-schmidt-wishbone", "toby-rush-eyeverify"];
 
-let computingTopics = ["modern-crypt", "moderninfotheory", "info-theory", "internet-works-intro", "introduction-to-the-atom", "introduction-to-compounds", "big-bang-expansion-topic", "intro-to-ee", "asthma2", "brain-teasers"];
+let computingTopics = ["modern-crypt", "moderninfotheory", "info-theory", "internet-works-intro", 
+//"introduction-to-the-atom", "introduction-to-compounds", 
+//"big-bang-expansion-topic", "intro-to-ee", 
+"asthma2", "brain-teasers"
+];
 
 let historyTopics = ["apush-early-english-settlement", "apush-declaration-of-independence", "apush-creating-a-nation",
-  "apush-age-of-jackson", "apush-culture-and-reform", "apush-slavery-and-the-civil-war", "apush-south-after-civil-war", "ap-us-history",
+  //"apush-age-of-jackson", "apush-culture-and-reform", "apush-slavery-and-the-civil-war", "apush-south-after-civil-war", "ap-us-history",
   "apush-us-wwii", "apush-1960s-america"];
 
 let popularTopics = ["mars-modern-exploration", "beginners-guide-20-21", "asthma2", "brain-teasers"];
@@ -218,7 +217,7 @@ app.get('/popular', function (req, res) {
 })
 
 app.get('/all-courses', function (req, res) {
-  requestCategory(artTopics.concat(economicsTopics).concat(computingTopics).concat(historyTopics), "All", res)
+  requestCategory(artTopics.concat(economicsTopics).concat(computingTopics), "All", res)
 });
 
 
