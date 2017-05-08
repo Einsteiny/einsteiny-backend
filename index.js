@@ -155,7 +155,7 @@ function generateRandomComplexity() {
 let artTopics = ["second-empire", "realism", "impressionism", "post-impressionism", "avant-garde-sculpture", "art-1010-ddp", "ceramics-glass", "sculpture",
   "painting-materials-techniques", "printmaking"];
 
-let economicsTopics = ["demand-curve-tutorial", "supply-curve-tutorial", "market-equilibrium-tutorial", "oil-prices-tutorial", "perfect-competition", "monopolies-tutorial", "monopolistic-competition-oligop", "stocks-intro-tutorial"];
+let economicsTopics = ["copy-of-khan-academy-living-room-chats", "supply-curve-tutorial", "market-equilibrium-tutorial", "oil-prices-tutorial", "perfect-competition", "monopolies-tutorial", "monopolistic-competition-oligop", "stocks-intro-tutorial"];
 
 let computingTopics = ["meet-the-computing-professional", "internet-works-intro", "moderninfotheory", "modern-crypt"];
 
