@@ -170,7 +170,7 @@ let economicsTopics = ["copy-of-khan-academy-living-room-chats", "richard-branso
 "giles-shih", "danny-oneill", "lara-morgan", "dave-smith", "jason-christiansen", "linda-jeschofnig", "lakeshia-grant", "warby-parker",
 "bottle-rocket-apps", "beth-schmidt-wishbone", "toby-rush-eyeverify"];
 
-let computingTopics = ["meet-the-computing-professional", "internet-works-intro", "moderninfotheory", "modern-crypt"];
+let computingTopics = ["modern-crypt", "moderninfotheory", "info-theory", "internet-works-intro"];
 
 let scienceTopics = ["introduction-to-the-atom", "introduction-to-compounds", "big-bang-expansion-topic", "intro-to-ee"];
 
