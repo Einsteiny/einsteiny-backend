@@ -69,8 +69,11 @@ app.get('/test', function (req, res) {
 var eisteinyUrl = "https://einsteiny.herokuapp.com/";
 var apiUrl = "https://www.khanacademy.org/api/v1/topic/";
 
+//add descriptions for courses with empty descriptions
 var descriptionsMap = {}
-descriptionsMap["copy-of-khan-academy-living-room-chats"] = "Hello"
+descriptionsMap["copy-of-khan-academy-living-room-chats"] = 
+"Personal lessons and insights from accomplished entrepreneurs are the basis of this interview series produced by the Ewing Marion Kauffman Foundation and Khan Academy.";
+
 
 function requestCategory(topics, categoryName, res) {
   let requests = [];
@@ -110,7 +113,7 @@ function requestCategory(topics, categoryName, res) {
 
       resObj.id = courseId;
       resObj.title = resInfo.title;
-      if (resInfo.description.length == 0) {
+      if (resInfo.description == null || resInfo.description.length == 0) {
         resObj.description = descriptionsMap[topics[i]];
       } else {
         resObj.description = resInfo.description;
@@ -163,7 +166,7 @@ function generateRandomComplexity() {
 let artTopics = ["second-empire", "realism", "impressionism", "post-impressionism", "avant-garde-sculpture", "art-1010-ddp", "ceramics-glass", "sculpture",
   "painting-materials-techniques", "printmaking"];
 
-let economicsTopics = ["copy-of-khan-academy-living-room-chats", "supply-curve-tutorial", "market-equilibrium-tutorial", "oil-prices-tutorial", "perfect-competition", "monopolies-tutorial", "monopolistic-competition-oligop", "stocks-intro-tutorial"];
+let economicsTopics = ["copy-of-khan-academy-living-room-chats", "richard-branson", "market-equilibrium-tutorial", "oil-prices-tutorial", "perfect-competition", "monopolies-tutorial", "monopolistic-competition-oligop", "stocks-intro-tutorial"];
 
 let computingTopics = ["meet-the-computing-professional", "internet-works-intro", "moderninfotheory", "modern-crypt"];
 
