@@ -73,6 +73,11 @@ var apiUrl = "https://www.khanacademy.org/api/v1/topic/";
 var descriptionsMap = {}
 descriptionsMap["copy-of-khan-academy-living-room-chats"] =
   "Personal lessons and insights from accomplished entrepreneurs are the basis of this interview series produced by the Ewing Marion Kauffman Foundation and Khan Academy.";
+descriptionsMap["printmaking"] = "Learn about the main types of printmaking: relief, intaglio and lithography. Did you know that MoMA offers studio courses online? Check out the list of offerings including online courses on collage and painting techniques. Created by The Museum of Modern Art."
+descriptionsMap["ceramics-glass"] = "Ancient glass makers near Jerusalem discovered they could inflate hot glass to make vessels quickly and more cheaply. Watch this ancient technique (footage from the Corning Museum of Glass). Love art? Created by Getty Museum."
+descriptionsMap["leonardo-da-vinci"] = "Leonardo da Vinci (1452-1519) was a painter, architect, inventor, and student of all things scientific. His natural genius crossed so many disciplines that he epitomized the term “Renaissance man.” Today he remains best known for his art, including two paintings that remain among the world’s most famous and admired, Mona Lisa and The Last Supper. Art, da Vinci believed, was indisputably connected with science and nature. Largely self-educated, he filled dozens of secret notebooks with inventions, observations and theories about pursuits from aeronautics to anatomy."
+descriptionsMap["michelangelo"] = "Michelangelo (1475-1564) was a sculptor, painter and architect widely considered to be one of the greatest artists of the Italian Renaissance period—and arguably of all time. His work demonstrated a blend of psychological insight, physical realism and intensity never before seen. His contemporaries recognized his extraordinary talent, and Michelangelo received commissions from some of the most wealthy and powerful men of his day, including popes and others affiliated with the Catholic Church."
+
 
 
 function requestCategory(topics, categoryName, res) {
@@ -199,7 +204,7 @@ let images = [
   "copy-of-khan-academy-living-room-chats.jpeg", "richard-branson.jpeg", "marc-ecko.jpeg",
   "philip-rosedale.jpeg",
   "zach-kaplan.jpeg", "ta-mccann.jpeg", "ben-milne.jpeg", "giles-shih.jpeg",
-  "danny-oneill.jpg", "lara-morgan.jpeg", "dave-smith.jpg", "jason-christiansen.jpeg",
+  "danny-oneill.jpeg", "lara-morgan.jpeg", "dave-smith.jpg", "jason-christiansen.jpeg",
   "linda-jeschofnig.jpeg", "lakeshia-grant.jpeg", "warby-parker.jpeg", "bottle-rocket-apps.jpeg",
   "beth-schmidt-wishbone.jpeg", "toby-rush-eyeverify.jpeg",
 
