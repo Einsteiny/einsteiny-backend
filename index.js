@@ -203,7 +203,7 @@ let images = [
   "linda-jeschofnig.jpeg", "lakeshia-grant.jpeg", "warby-parker.jpeg", "bottle-rocket-apps.jpeg",
   "beth-schmidt-wishbone.jpeg", "toby-rush-eyeverify.jpeg",
 
-  "modern-crypt.jpg", "moderninfotheory.jpg", "info-theory.jpeg", "internet-works-intro.jpg",
+  "modern-crypt.jpg", "moderninfotheory.jpg", "info-theory.jpg", "internet-works-intro.jpg",
   "introduction-to-the-atom.jpeg", "introduction-to-compounds.png",
   "big-bang-expansion-topic.jpg", "intro-to-ee.jpg",
   "asthma2.jpg", "brain-teasers.jpg", "mars-modern-exploration.jpg"
