@@ -156,9 +156,12 @@ function generateRandomComplexity() {
 
 };
 
-let artTopics = ["realism", "impressionism", "post-impressionism", "avant-garde-sculpture", "art-1010-ddp", "ceramics-glass", "sculpture",
-  "painting-materials-techniques", "printmaking", "intl-avant-garde", "surrealism1", "leonardo-da-vinci", "michelangelo", "high-renaissance1",
-  "fauvism-matisse", "expressionism1", "cubism", "art-post-war-britain", "abstract-expressionism", "ny-school", "pop",
+let artTopics = [
+  "realism", "impressionism", "post-impressionism", "avant-garde-sculpture", 
+  "art-1010-ddp", "ceramics-glass", "sculpture","painting-materials-techniques", 
+  "printmaking", "intl-avant-garde", "surrealism1", "leonardo-da-vinci", 
+  "michelangelo", "high-renaissance1", "fauvism-matisse", "expressionism1", 
+  "cubism", "art-post-war-britain", "abstract-expressionism", "ny-school", "pop"
 ];
 
 let economicsTopics = ["copy-of-khan-academy-living-room-chats", "richard-branson", "marc-ecko", "philip-rosedale", "zach-kaplan", "ta-mccann", "ben-milne",
@@ -178,9 +181,12 @@ let historyTopics = ["apush-early-english-settlement", "apush-declaration-of-ind
 let popularTopics = ["mars-modern-exploration", "beginners-guide-20-21", "asthma2", "brain-teasers"];
 
 let images = [
-  "second-empire.jpg", "realism.jpg", "impressionism.jpg", "post-impressionism.jpg",
-  "avant-garde-sculpture.jpg", "art-1010-ddp.jpg", "ceramics-glass.jpg", "sculpture.jpg",
-  "painting-materials-techniques.jpg", "printmaking.jpg",
+  //images for Arts section
+  "realism.jpg", "impressionism.jpg", "post-impressionism.jpg","avant-garde-sculpture.jpg",
+  "art-1010-ddp.jpg", "ceramics-glass.jpg", "sculpture.jpg","painting-materials-techniques.jpg",
+  "printmaking.jpg", "intl-avant-garde.jpg", "surrealism1.jpg", "leonardo-da-vinci.jpg", 
+  "michelangelo.jpg", "high-renaissance1.jpg", "fauvism-matisse.jpg", "expressionism1.jpg", 
+  "cubism.jpg", "art-post-war-britain.jpg", "abstract-expressionism.jpg", "ny-school.jpg", "pop.jpg",
 
   "demand-curve-tutorial.jpg", "supply-curve-tutorial.jpg", "market-equilibrium-tutorial.jpg",
   "oil-prices-tutorial.jpg", "perfect-competition.jpg", "monopolies-tutorial.jpg",
