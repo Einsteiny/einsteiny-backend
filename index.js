@@ -116,8 +116,7 @@ function requestCategory(topics, categoryName, res) {
       } else {
         resObj.description = resInfo.description;
       }
-
-
+      resObj.isPopular = popularTopics.indexOf(topics[i]) > -1 ? true : false;
 
       let lessons = []
       for (let i = 0; i < resVideos.length; i++) {
@@ -183,7 +182,7 @@ let historyTopics = ["apush-early-english-settlement", "apush-declaration-of-ind
   "apush-age-of-jackson", "apush-culture-and-reform", "apush-slavery-and-the-civil-war", "apush-south-after-civil-war", "ap-us-history",
   "apush-us-wwii", "apush-1960s-america"];
 
-let popularTopics = ["mars-modern-exploration", "beginners-guide-20-21", "asthma2", "brain-teasers"];
+let popularTopics = ["post-impressionism", "painting-materials-techniques", "printmaking", "sculpture", "pop", "ny-school"];
 
 let images = [
   //images for Arts section
