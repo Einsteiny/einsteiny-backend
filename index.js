@@ -132,7 +132,7 @@ function requestCategory(topics, categoryName, res) {
       }
       resObj.lessons = lessons;
       resObj.complexity = generateRandomComplexity();
-    
+
       resObjs.push(resObj);
     }
     console.error("resobjs = ", resObjs);
@@ -157,21 +157,26 @@ function generateRandomComplexity() {
 };
 
 let artTopics = [
-  "realism", "impressionism", "post-impressionism", "avant-garde-sculpture", 
-  "art-1010-ddp", "ceramics-glass", "sculpture","painting-materials-techniques", 
-  "printmaking", "intl-avant-garde", "surrealism1", "leonardo-da-vinci", 
-  "michelangelo", "high-renaissance1", "fauvism-matisse", "expressionism1", 
+  "realism", "impressionism", "post-impressionism", "avant-garde-sculpture",
+  "art-1010-ddp", "ceramics-glass", "sculpture", "painting-materials-techniques",
+  "printmaking", "intl-avant-garde", "surrealism1", "leonardo-da-vinci",
+  "michelangelo", "high-renaissance1", "fauvism-matisse", "expressionism1",
   "cubism", "art-post-war-britain", "abstract-expressionism", "ny-school", "pop"
 ];
 
-let economicsTopics = ["copy-of-khan-academy-living-room-chats", "richard-branson", "marc-ecko", "philip-rosedale", "zach-kaplan", "ta-mccann", "ben-milne",
-  "giles-shih", "danny-oneill", "lara-morgan", "dave-smith", "jason-christiansen", "linda-jeschofnig", "lakeshia-grant", "warby-parker",
-  "bottle-rocket-apps", "beth-schmidt-wishbone", "toby-rush-eyeverify"];
+let economicsTopics = [
+  "copy-of-khan-academy-living-room-chats", "richard-branson", "marc-ecko", "philip-rosedale",
+  "zach-kaplan", "ta-mccann", "ben-milne", "giles-shih",
+  "danny-oneill", "lara-morgan", "dave-smith", "jason-christiansen",
+  "linda-jeschofnig", "lakeshia-grant", "warby-parker", "bottle-rocket-apps",
+  "beth-schmidt-wishbone", "toby-rush-eyeverify"
+];
 
-let computingTopics = ["modern-crypt", "moderninfotheory", "info-theory", "internet-works-intro", 
-"introduction-to-the-atom", "introduction-to-compounds", 
-"big-bang-expansion-topic", "intro-to-ee", 
-"asthma2", "brain-teasers"
+let computingTopics = [
+  "modern-crypt", "moderninfotheory", "info-theory", "internet-works-intro",
+  "introduction-to-the-atom", "introduction-to-compounds",
+  "big-bang-expansion-topic", "intro-to-ee",
+  "asthma2", "brain-teasers", "mars-modern-exploration"
 ];
 
 let historyTopics = ["apush-early-english-settlement", "apush-declaration-of-independence", "apush-creating-a-nation",
@@ -182,21 +187,27 @@ let popularTopics = ["mars-modern-exploration", "beginners-guide-20-21", "asthma
 
 let images = [
   //images for Arts section
-  "realism.jpg", "impressionism.jpg", "post-impressionism.jpg","avant-garde-sculpture.jpg",
-  "art-1010-ddp.jpg", "ceramics-glass.jpg", "sculpture.jpg","painting-materials-techniques.jpg",
-  "printmaking.jpg", "intl-avant-garde.jpg", "surrealism1.jpg", "leonardo-da-vinci.jpg", 
-  "michelangelo.jpg", "high-renaissance1.jpg", "fauvism-matisse.jpg", "expressionism1.jpg", 
+  "realism.jpg", "impressionism.jpg", "post-impressionism.jpg", "avant-garde-sculpture.jpg",
+  "art-1010-ddp.jpg", "ceramics-glass.jpg", "sculpture.jpg", "painting-materials-techniques.jpg",
+  "printmaking.jpg", "intl-avant-garde.jpg", "surrealism1.jpg", "leonardo-da-vinci.jpg",
+  "michelangelo.jpg", "high-renaissance1.jpg", "fauvism-matisse.jpg", "expressionism1.jpg",
   "cubism.jpg", "art-post-war-britain.jpg", "abstract-expressionism.jpg", "ny-school.jpg", "pop.jpg",
 
-  "demand-curve-tutorial.jpg", "supply-curve-tutorial.jpg", "market-equilibrium-tutorial.jpg",
-  "oil-prices-tutorial.jpg", "perfect-competition.jpg", "monopolies-tutorial.jpg",
-  "monopolistic-competition-oligop.jpg", "stocks-intro-tutorial.jpg",
+  // "demand-curve-tutorial.jpg", "supply-curve-tutorial.jpg", "market-equilibrium-tutorial.jpg",
+  // "oil-prices-tutorial.jpg", "perfect-competition.jpg", "monopolies-tutorial.jpg",
+  // "monopolistic-competition-oligop.jpg", "stocks-intro-tutorial.jpg",
 
+  "copy-of-khan-academy-living-room-chats.jpeg", "richard-branson.jpeg", "marc-ecko.jpeg",
+  "philip-rosedale.jpeg",
+  "zach-kaplan.jpeg", "ta-mccann.jpeg", "ben-milne.jpeg", "giles-shih.jpeg",
+  "danny-oneill.jpg", "lara-morgan.jpeg", "dave-smith.jpeg", "jason-christiansen.jpeg",
+  "linda-jeschofnig.jpeg", "lakeshia-grant.jpeg", "warby-parker.jpeg", "bottle-rocket-apps.jpeg",
+  "beth-schmidt-wishbone.jpeg", "toby-rush-eyeverify.jpeg",
 
-  "meet-the-computing-professional.jpg", "internet-works-intro.jpg", "moderninfotheory.jpg", "modern-crypt.jpg",
-  "introduction-to-the-atom.jpeg", "introduction-to-compounds.png", "big-bang-expansion-topic.jpg", "intro-to-ee.jpg",
-  "mars-modern-exploration.jpg", "beginners-guide-20-21.jpg", "asthma2.jpg", "brain-teasers.jpg"
-
+  "modern-crypt.jpg", "moderninfotheory.jpg", "info-theory.jpeg", "internet-works-intro.jpg",
+  "introduction-to-the-atom.jpeg", "introduction-to-compounds.png",
+  "big-bang-expansion-topic.jpg", "intro-to-ee.jpg",
+  "asthma2.jpg", "brain-teasers.jpg", "mars-modern-exploration.jpg"
 ];
 
 app.get('/humanities', function (req, res) {
