@@ -116,7 +116,7 @@ function requestCategory(topics, categoryName, res) {
       } else {
         resObj.description = resInfo.description;
       }
-      resObj.isPopular = popularTopics.indexOf(topics[i]) > -1 ? true : false;
+      resObj.is_popular = popularTopics.indexOf(topics[i]) > -1 ? true : false;
 
       let lessons = []
       for (let i = 0; i < resVideos.length; i++) {
