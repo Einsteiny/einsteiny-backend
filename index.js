@@ -200,7 +200,7 @@ let images = [
   "copy-of-khan-academy-living-room-chats.jpeg", "richard-branson.jpeg", "marc-ecko.jpeg",
   "philip-rosedale.jpeg",
   "zach-kaplan.jpeg", "ta-mccann.jpeg", "ben-milne.jpeg", "giles-shih.jpeg",
-  "danny-oneill.jpg", "lara-morgan.jpeg", "dave-smith.jpeg", "jason-christiansen.jpeg",
+  "danny-oneill.jpg", "lara-morgan.jpeg", "dave-smith.jpg", "jason-christiansen.jpeg",
   "linda-jeschofnig.jpeg", "lakeshia-grant.jpeg", "warby-parker.jpeg", "bottle-rocket-apps.jpeg",
   "beth-schmidt-wishbone.jpeg", "toby-rush-eyeverify.jpeg",
 
