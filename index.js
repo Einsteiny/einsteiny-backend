@@ -187,7 +187,7 @@ let historyTopics = ["apush-early-english-settlement", "apush-declaration-of-ind
   "apush-age-of-jackson", "apush-culture-and-reform", "apush-slavery-and-the-civil-war", "apush-south-after-civil-war", "ap-us-history",
   "apush-us-wwii", "apush-1960s-america"];
 
-let popularTopics = ["post-impressionism", "painting-materials-techniques", "printmaking", "sculpture", "pop", "ny-school"];
+let popularTopics = ["post-impressionism", "painting-materials-techniques", "high-renaissance1", "sculpture", "pop", "ny-school"];
 
 let images = [
   //images for Arts section
